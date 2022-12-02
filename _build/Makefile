@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Maria/Documents/PAOO_tema1
+CMAKE_SOURCE_DIR = /mnt/c/users/Maria/Documents/paoo_tema1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Maria/Documents/PAOO_tema1/_build
+CMAKE_BINARY_DIR = /mnt/c/users/Maria/Documents/paoo_tema1/_build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Maria/Documents/PAOO_tema1/_build/CMakeFiles /mnt/c/Users/Maria/Documents/PAOO_tema1/_build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/users/Maria/Documents/paoo_tema1/_build/CMakeFiles /mnt/c/users/Maria/Documents/paoo_tema1/_build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Maria/Documents/PAOO_tema1/_build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/users/Maria/Documents/paoo_tema1/_build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ first_cpp_program/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/build
 .PHONY : first_cpp_program/fast
 
-src/tema1.o: src/tema1.cpp.o
-.PHONY : src/tema1.o
+src/tema2.o: src/tema2.cpp.o
+.PHONY : src/tema2.o
 
 # target to build an object file
-src/tema1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/src/tema1.cpp.o
-.PHONY : src/tema1.cpp.o
+src/tema2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/src/tema2.cpp.o
+.PHONY : src/tema2.cpp.o
 
-src/tema1.i: src/tema1.cpp.i
-.PHONY : src/tema1.i
+src/tema2.i: src/tema2.cpp.i
+.PHONY : src/tema2.i
 
 # target to preprocess a source file
-src/tema1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/src/tema1.cpp.i
-.PHONY : src/tema1.cpp.i
+src/tema2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/src/tema2.cpp.i
+.PHONY : src/tema2.cpp.i
 
-src/tema1.s: src/tema1.cpp.s
-.PHONY : src/tema1.s
+src/tema2.s: src/tema2.cpp.s
+.PHONY : src/tema2.s
 
 # target to generate assembly for a file
-src/tema1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/src/tema1.cpp.s
-.PHONY : src/tema1.cpp.s
+src/tema2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first_cpp_program.dir/build.make CMakeFiles/first_cpp_program.dir/src/tema2.cpp.s
+.PHONY : src/tema2.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... first_cpp_program"
-	@echo "... src/tema1.o"
-	@echo "... src/tema1.i"
-	@echo "... src/tema1.s"
+	@echo "... src/tema2.o"
+	@echo "... src/tema2.i"
+	@echo "... src/tema2.s"
 .PHONY : help
 
 

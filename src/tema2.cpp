@@ -4,13 +4,13 @@ using namespace std;
 
 // Clasa de baza
 class Animal {
-    private:
-        string nume;
-        int nr_membre;
-        string mediu;
-  public:
+protected:
+    string nume;
+    int nr_membre;
+    string mediu;
+public:
 
-    Animal(const string &nume, const string &mediu, const int &nr_membre):
+    Animal(const string& nume, const string& mediu, const int& nr_membre) :
         nume(nume),
         mediu(mediu),
         nr_membre(nr_membre)
@@ -19,18 +19,18 @@ class Animal {
     }
 
     void animalSound() {
-      cout << "The animal makes a sound \n";
+        cout << "The animal makes a sound \n";
     }
 
     ~Animal() {             //declar explicit destructorul pentru a preveni generarea automata a celui implicit
-        cout<<"Acest obiect a fost distrus!\n";
+        cout << "Acest obiect a fost distrus!\n";
     }
 
-    string get_nume(){
+    string get_nume() {
         return nume;
     }
 
-    string get_mediu(){
+    string get_mediu() {
         return mediu;
     }
 
@@ -38,14 +38,14 @@ class Animal {
         return nr_membre;
     }
 
-    Animal(const Animal&) =delete; // sterg copy constuctorul pentru a interzice copierea unui obiect de tip Animal
-    Animal& operator=(const Animal&) =delete;
+    Animal(const Animal&) = delete; // sterg copy constuctorul pentru a interzice copierea unui obiect de tip Animal
+    Animal& operator=(const Animal&) = delete;
 };
 
 // Clasa derivata
 class Bird : public Animal {
     int canfly = 0;  //poate sau nu sa zboare
-    public:
+public:
 
     Bird(const string tip, const string mediu, const int nr_membre, const int canfly) :
         Animal(tip, mediu, nr_membre),  //apelez constructorul aferent clasei Animal cu parametrii ceruti
@@ -55,42 +55,49 @@ class Bird : public Animal {
     }
 
     void animalSound() {
-      cout << "The bird says: cirip cirip \n";
+        cout << "The bird says: cirip cirip \n";
     }
 
-    int get_canfly(){
+    int get_canfly() {
         return canfly;
     }
 
+    Bird(const Bird& bird); // copy constructor
+    Bird operator=(Bird a);
     void show();
 
 };
 
 // Derived class
 class Dog : public Animal {
-    private:
-        string stapan;
-  public:
-      Dog(const string tip, const string mediu, const int nr_membre, const string nume_stapan) :
-          Animal(tip, mediu, nr_membre),    //apelez constructorul aferent clasei Animal cu parametrii ceruti
-          stapan(nume_stapan)               //initializez stapan
+private:
+    string stapan;
+public:
+    Dog(const string tip, const string mediu, const int nr_membre, const string nume_stapan) :
+        Animal(tip, mediu, nr_membre),    //apelez constructorul aferent clasei Animal cu parametrii ceruti
+        stapan(nume_stapan)               //initializez stapan
     {
         cout << "sunt in Dog constructor\n";
     }
 
     void animalSound() {
-      cout << "The dog says: ham ham \n";
+        cout << "The dog says: ham ham \n";
     }
 
-    string get_stapan(){
+    string get_stapan() {
         return stapan;
     }
 
+    Dog(const Dog& dog); // copy constructor
+    Dog operator=(Dog a);
     void show();
 };
 
 Dog Dog::operator=(Dog a)
 {
+    cout << "sunt in Dog assigment op\n";
+    if (this == &a) return *this;
+
     nume = a.nume; // These are integer assignments
     nr_membre = a.nr_membre; // and the = retains its original
     mediu = a.mediu; // meaning relative to them.
@@ -100,11 +107,34 @@ Dog Dog::operator=(Dog a)
 
 Bird Bird::operator=(Bird a)
 {
+    cout << "sunt in Bird assigment op\n";
+    if (this == &a) return *this;
+
     nume = a.nume; // These are integer assignments
     nr_membre = a.nr_membre; // and the = retains its original
     mediu = a.mediu; // meaning relative to them.
     canfly = a.canfly;
     return *this;
+}
+
+// Copy constructor.
+Dog::Dog(const Dog& a) :
+    Animal (a.nume,
+        a.mediu,
+        a.nr_membre),
+    stapan(a.stapan)
+{
+    cout << "sunt in Dog copy constructor\n";
+}
+
+// Copy constructor.
+Bird::Bird(const Bird& a) :
+    Animal(a.nume,
+        a.mediu,
+        a.nr_membre),
+    canfly(a.canfly)
+{
+    cout << "sunt in Bird copy constructor\n";
 }
 
 void Dog::show()
@@ -123,7 +153,7 @@ void Bird::show()
     cout << "tip: " << get_nume() << "\n";
     cout << "mediu: " << get_mediu() << "\n";
     cout << "numar membre: " << get_membre() << "\n";
-    if(canfly == 0)
+    if (canfly == 0)
         cout << "This bird can't fly \n";
     else
         cout << "This bird can fly \n";
@@ -132,17 +162,35 @@ void Bird::show()
 }
 
 int main() {
-    Dog dog("caine", "terestru", 4, "Luisa");
-    dog.show();
-    cout << "\n";
+    cout << "Creem un caine, un pinguin, un vulture si o randunica\n";
+    Dog caine("caine", "terestru", 4, "Luisa");
     Bird pinguin("pinguin", "terestru", 2, 0);
+    Bird vulture("vulture", "aerian", 2, 1);
+    Bird randunica("randunica", "aerian", 2, 1);
+    cout << "\n";
+    caine.show();
+    cout << "\n";
     pinguin.show();
     cout << "\n";
-    Bird vulture ("vulture", "aerian", 2, 1);
     vulture.show();
-    pinguin=vulture;
+    cout << "\n";
+    randunica.show();
+    cout << "\n";
+    cout << "Executam caine = caine\n";
+    cout << "\n";
+    caine = caine;
+    cout << "\n";
+    caine.show();
+    cout << "\n";
+    cout << "Executam pinguin = vulture = randunica\n";
+    cout << "\n";
+    pinguin = vulture = randunica;
+    cout << "\n";
+    cout << "pinguin este acum: \n";
     pinguin.show();
     cout << "\n";
-    //pinguin = vulture; - nu functioneaza deoarece am sters copy constructorul
+    cout << "vulture este acum: \n";
+    vulture.show();
+    cout << "\n";
     return 0;
 }
