@@ -1,3 +1,3 @@
-/mnt/c/users/Maria/Documents/paoo_tema1/_build/CMakeFiles/first_cpp_program.dir
-/mnt/c/users/Maria/Documents/paoo_tema1/_build/CMakeFiles/edit_cache.dir
-/mnt/c/users/Maria/Documents/paoo_tema1/_build/CMakeFiles/rebuild_cache.dir
+/mnt/c/users/maria/Documents/paoo_tema1/_build/CMakeFiles/first_cpp_program.dir
+/mnt/c/users/maria/Documents/paoo_tema1/_build/CMakeFiles/edit_cache.dir
+/mnt/c/users/maria/Documents/paoo_tema1/_build/CMakeFiles/rebuild_cache.dir

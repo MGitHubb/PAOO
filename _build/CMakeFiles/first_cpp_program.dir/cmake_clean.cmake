@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/first_cpp_program.dir/src/tema2.cpp.o"
-  "CMakeFiles/first_cpp_program.dir/src/tema2.cpp.o.d"
+  "CMakeFiles/first_cpp_program.dir/src/tema3.cpp.o"
+  "CMakeFiles/first_cpp_program.dir/src/tema3.cpp.o.d"
   "first_cpp_program"
   "first_cpp_program.pdb"
 )
